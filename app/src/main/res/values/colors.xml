@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#673AB7</color>
+    <color name="primary_dark">#512DA8</color>
+    <color name="accent">#FF4081</color>
+
+    <!-- Dark Mode / High Contrast Alarm Colors -->
+    <color name="alarm_bg_dark">#121218</color>
+    <color name="alarm_card_dark">#1E1E2A</color>
+    <color name="alarm_title">#FFFFFF</color>
+    <color name="alarm_subtitle">#B0BEC5</color>
+    <color name="alarm_time">#4CAF50</color>
+    <color name="alarm_lead">#FF9800</color>
+
+    <!-- Action Button Colors -->
+    <color name="snooze_btn_bg">#FF9800</color>
+    <color name="snooze_btn_text">#FFFFFF</color>
+    <color name="dismiss_btn_bg">#E53935</color>
+    <color name="dismiss_btn_text">#FFFFFF</color>
+
+    <!-- General UI Colors -->
+    <color name="bg_main">#F4F6FB</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="text_primary">#1A1C20</color>
+    <color name="text_secondary">#74777F</color>
+    <color name="divider">#E0E2EC</color>
+</resources>

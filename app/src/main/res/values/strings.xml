@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Calendar Event Alarm</string>
+    <string name="dashboard_title">Calendar Event Alarms</string>
+    <string name="dashboard_subtitle">15-minute lead alarms for your scheduled meetings</string>
+
+    <!-- Ringtone Preferences -->
+    <string name="alarm_tone_label">Alarm Ringtone Tone</string>
+    <string name="select_tone_button">Change Sound</string>
+
+    <!-- Quick Actions -->
+    <string name="sync_now_button">Sync Calendar Now</string>
+    <string name="test_alarm_button">Test Alarm (5 Seconds)</string>
+
+    <!-- Calendar List -->
+    <string name="upcoming_events_title">Today\'s &amp; Upcoming Meetings</string>
+    <string name="no_events_found">No upcoming meetings found in device calendar.</string>
+    <string name="alarm_lead_time_label">Alarm set for 15 minutes prior</string>
+
+    <!-- Fullscreen Alarm Screen -->
+    <string name="alarm_ringing_title">UPCOMING MEETING ALARM</string>
+    <string name="snooze_button">Snooze (5 Mins)</string>
+    <string name="dismiss_button">Dismiss</string>
+    <string name="meeting_starts_in">Meeting starts in 15 minutes</string>
+
+    <!-- Permissions -->
+    <string name="permission_required">Calendar &amp; Notification permissions required to track meetings and ring alarms.</string>
+    <string name="grant_permissions">Grant Permissions</string>
+</resources>

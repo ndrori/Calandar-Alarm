@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/alarm_bg_dark"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp"
+    tools:context=".ui.AlarmActivity">
+
+    <!-- Top Status Header -->
+    <TextView
+        android:id="@+id/tvAlarmHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:letterSpacing="0.1"
+        android:text="@string/alarm_ringing_title"
+        android:textColor="@color/alarm_lead"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <!-- Pulsing Alarm Icon Container -->
+    <FrameLayout
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/bg_alarm_icon_circle">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:src="@android:drawable/ic_lock_idle_alarm"
+            app:tint="#FFFFFF" />
+    </FrameLayout>
+
+    <!-- Event Meeting Title -->
+    <TextView
+        android:id="@+id/tvAlarmEventTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/alarm_title"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        tools:text="Quarterly Product Strategy &amp; Engineering Sync" />
+
+    <!-- Meeting Start Time & Lead Time Indicator -->
+    <TextView
+        android:id="@+id/tvAlarmSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="@string/meeting_starts_in"
+        android:textColor="@color/alarm_subtitle"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvMeetingTimeDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:textColor="@color/alarm_time"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        tools:text="Meeting starts at 2:30 PM" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Action Buttons Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- SNOOZE BUTTON (5 minutes interval) -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSnooze"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/snooze_button"
+            android:textColor="@color/snooze_btn_text"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/snooze_btn_bg"
+            app:cornerRadius="16dp"
+            app:icon="@android:drawable/ic_media_pause"
+            app:iconGravity="textStart"
+            app:iconSize="24dp" />
+
+        <!-- DISMISS BUTTON -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDismiss"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:text="@string/dismiss_button"
+            android:textColor="@color/dismiss_btn_text"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/dismiss_btn_bg"
+            app:cornerRadius="16dp"
+            app:icon="@android:drawable/ic_menu_close_clear_cancel"
+            app:iconGravity="textStart"
+            app:iconSize="24dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
