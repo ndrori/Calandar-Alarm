@@ -1,28 +1,61 @@
 <resources>
     <string name="app_name">Calendar Event Alarm</string>
     <string name="dashboard_title">Calendar Event Alarms</string>
-    <string name="dashboard_subtitle">15-minute lead alarms for your scheduled meetings</string>
+    <string name="dashboard_subtitle">Stepped lead alarms for your scheduled meetings</string>
 
     <!-- Ringtone Preferences -->
-    <string name="alarm_tone_label">Alarm Ringtone Tone</string>
+    <string name="alarm_tone_label">Alarm Ringtone Sound</string>
     <string name="select_tone_button">Change Sound</string>
+    <string name="default_system_sound">Default System Alarm Sound</string>
+    <string name="sound_updated_toast">Alarm sound updated to: %1$s</string>
+    <string name="ringtone_picker_title">Select Alarm Ringtone / Sound</string>
+
+    <!-- Language Preferences -->
+    <string name="language_setting_label">App Interface Language</string>
+    <string name="change_language_button">Change Language</string>
+    <string name="language_dialog_title">Select Application Language</string>
+    <string name="language_system_default">System Default</string>
+    <string name="language_updated_toast">App language updated to: %1$s</string>
 
     <!-- Quick Actions -->
     <string name="sync_now_button">Sync Calendar Now</string>
     <string name="test_alarm_button">Test Alarm (5 Seconds)</string>
 
-    <!-- Calendar List -->
+    <!-- Calendar List & Lead Times -->
     <string name="upcoming_events_title">Today\'s &amp; Upcoming Meetings</string>
     <string name="no_events_found">No upcoming meetings found in device calendar.</string>
     <string name="alarm_lead_time_label">Alarm set for 15 minutes prior</string>
+    <string name="alarm_lead_time_minutes">Alarm set for %1$d minutes prior</string>
+    <string name="alarm_lead_time_now">Alarm set for meeting occurrence</string>
+    <string name="sync_success_toast">Calendar synced successfully!</string>
+
+    <!-- Event Alarm Status -->
+    <string name="status_scheduled">Scheduled</string>
+    <string name="status_fired">Alarm Triggered</string>
+    <string name="status_dismissed">Dismissed</string>
 
     <!-- Fullscreen Alarm Screen -->
     <string name="alarm_ringing_title">UPCOMING MEETING ALARM</string>
     <string name="snooze_button">Snooze (5 Mins)</string>
     <string name="dismiss_button">Dismiss</string>
     <string name="meeting_starts_in">Meeting starts in 15 minutes</string>
+    <string name="meeting_starts_in_mins">Meeting starts in %1$d minutes</string>
+    <string name="meeting_starting_now">Meeting starting now!</string>
+    <string name="test_alarm_set_toast">Test alarm set for 5 seconds!</string>
 
     <!-- Permissions -->
     <string name="permission_required">Calendar &amp; Notification permissions required to track meetings and ring alarms.</string>
+    <string name="permission_required_toast">Calendar permission is required to track meetings.</string>
     <string name="grant_permissions">Grant Permissions</string>
+
+    <!-- Notifications & Background Services -->
+    <string name="notification_monitoring_title">Calendar Alarm Monitoring</string>
+    <string name="notification_monitoring_text">Monitoring calendar events in real-time for upcoming alarms</string>
+    <string name="notification_alarm_title">ALARM: 15 MIN PRIOR</string>
+    <string name="notification_alarm_title_mins">ALARM: %1$d MIN PRIOR</string>
+    <string name="notification_alarm_title_now">ALARM: MEETING STARTING NOW</string>
+    <string name="notification_snooze_title">SNOOZED ALARM: %1$s</string>
+    <string name="notification_alarm_text">Upcoming Meeting: %1$s</string>
+    <string name="notification_snooze_action">Snooze (5m)</string>
+    <string name="notification_dismiss_action">Dismiss</string>
 </resources>

@@ -4,7 +4,10 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import com.example.calendareventalarm.data.CalendarScanner
 import com.example.calendareventalarm.data.PreferencesManager
+import com.example.calendareventalarm.model.AlarmStatus
+import com.example.calendareventalarm.model.CalendarEvent
 import com.example.calendareventalarm.service.AlarmService
 import com.example.calendareventalarm.utils.AlarmScheduler
 
@@ -48,6 +51,26 @@ class AlarmReceiver : BroadcastReceiver() {
                     context.startForegroundService(serviceIntent)
                 } else {
                     context.startService(serviceIntent)
+                }
+
+                // Schedule subsequent 5-minute step alarm if event start hasn't been reached yet
+                val now = System.currentTimeMillis()
+                if (startTime > now + 30_000L && !isSnooze && eventId > 0) {
+                    val nextAlarmTime = CalendarScanner.calculateNextAlarmTime(startTime, now + 10_000L)
+                    if (nextAlarmTime > now && nextAlarmTime <= startTime) {
+                        val nextEvent = CalendarEvent(
+                            eventId = eventId,
+                            title = eventTitle,
+                            description = null,
+                            location = null,
+                            startTime = startTime,
+                            endTime = startTime + 30 * 60 * 1000L,
+                            alarmTime = nextAlarmTime,
+                            status = AlarmStatus.SCHEDULED
+                        )
+                        AlarmScheduler(context).scheduleEventAlarm(nextEvent)
+                        Log.i(TAG, "Scheduled next 5-min step alarm for '$eventTitle' at $nextAlarmTime")
+                    }
                 }
             }
 

@@ -4,8 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.media.RingtoneManager
 import android.net.Uri
+import com.example.calendareventalarm.R
 
-class PreferencesManager(context: Context) {
+class PreferencesManager(private val context: Context) {
 
     private val prefs: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
 
@@ -14,7 +15,9 @@ class PreferencesManager(context: Context) {
         private const val KEY_RINGTONE_URI = "key_ringtone_uri"
         private const val KEY_RINGTONE_NAME = "key_ringtone_name"
         private const val KEY_SNOOZE_DURATION_MINS = "key_snooze_duration_mins"
+        private const val KEY_APP_LANGUAGE = "key_app_language"
         private const val DEFAULT_SNOOZE_MINS = 5
+        const val LANG_SYSTEM = "system"
     }
 
     /**
@@ -38,7 +41,28 @@ class PreferencesManager(context: Context) {
     }
 
     fun getRingtoneName(): String {
-        return prefs.getString(KEY_RINGTONE_NAME, "Default System Alarm Tone") ?: "Default System Alarm Tone"
+        val defaultName = context.getString(R.string.default_system_sound)
+        return prefs.getString(KEY_RINGTONE_NAME, defaultName) ?: defaultName
+    }
+
+    fun getLanguageCode(): String {
+        return prefs.getString(KEY_APP_LANGUAGE, LANG_SYSTEM) ?: LANG_SYSTEM
+    }
+
+    fun setLanguageCode(code: String) {
+        prefs.edit().putString(KEY_APP_LANGUAGE, code).apply()
+    }
+
+    fun getLanguageDisplayName(): String {
+        return when (getLanguageCode()) {
+            "en" -> "English"
+            "es" -> "Español"
+            "he" -> "עברית"
+            "fr" -> "Français"
+            "de" -> "Deutsch"
+            "ar" -> "العربية"
+            else -> context.getString(R.string.language_system_default)
+        }
     }
 
     fun getSnoozeDurationMillis(): Long {

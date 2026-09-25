@@ -16,9 +16,16 @@ import com.example.calendareventalarm.data.PreferencesManager
 import com.example.calendareventalarm.receiver.AlarmReceiver
 import com.example.calendareventalarm.ui.AlarmActivity
 import com.example.calendareventalarm.utils.AlarmScheduler
+import com.example.calendareventalarm.utils.LocaleUtils
 import com.example.calendareventalarm.utils.SoundManager
+import kotlin.math.max
+import kotlin.math.roundToInt
 
 class AlarmService : Service() {
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(LocaleUtils.wrapContext(newBase))
+    }
 
     private lateinit var soundManager: SoundManager
     private lateinit var prefsManager: PreferencesManager
@@ -48,13 +55,13 @@ class AlarmService : Service() {
         }
 
         val eventId = intent?.getLongExtra(AlarmScheduler.EXTRA_EVENT_ID, -1L) ?: -1L
-        val eventTitle = intent?.getStringExtra(AlarmScheduler.EXTRA_EVENT_TITLE) ?: "Upcoming Event"
+        val eventTitle = intent?.getStringExtra(AlarmScheduler.EXTRA_EVENT_TITLE) ?: getString(R.string.app_name)
         val startTime = intent?.getLongExtra(AlarmScheduler.EXTRA_EVENT_START_TIME, 0L) ?: 0L
         val isSnooze = intent?.getBooleanExtra(AlarmScheduler.EXTRA_IS_SNOOZE, false) ?: false
 
         Log.i(TAG, "Starting AlarmService for event '$eventTitle' (ID: $eventId, Snooze: $isSnooze)")
 
-        // Play Alarm Audio Tone and Vibration
+        // Play User Defined Alarm Audio Tone and Vibration
         val ringtoneUri = prefsManager.getRingtoneUri()
         soundManager.startAlarmSoundAndVibration(ringtoneUri)
 
@@ -99,8 +106,14 @@ class AlarmService : Service() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        val notificationTitle = if (isSnooze) "SNOOZED ALARM: $eventTitle" else "ALARM: 15 MIN PRIOR"
-        val notificationText = "Upcoming Meeting: $eventTitle"
+        val leadMins = max(0, ((startTime - System.currentTimeMillis()) / (60 * 1000.0)).roundToInt())
+
+        val notificationTitle = when {
+            isSnooze -> getString(R.string.notification_snooze_title, eventTitle)
+            leadMins > 0 -> getString(R.string.notification_alarm_title_mins, leadMins)
+            else -> getString(R.string.notification_alarm_title_now)
+        }
+        val notificationText = getString(R.string.notification_alarm_text, eventTitle)
 
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
@@ -113,8 +126,8 @@ class AlarmService : Service() {
             .setContentIntent(fullScreenPendingIntent)
             .setOngoing(true)
             .setAutoCancel(false)
-            .addAction(android.R.drawable.ic_media_pause, "Snooze (5m)", snoozePendingIntent)
-            .addAction(android.R.drawable.ic_menu_close_clear_cancel, "Dismiss", dismissPendingIntent)
+            .addAction(android.R.drawable.ic_media_pause, getString(R.string.notification_snooze_action), snoozePendingIntent)
+            .addAction(android.R.drawable.ic_menu_close_clear_cancel, getString(R.string.notification_dismiss_action), dismissPendingIntent)
             .build()
 
         startForeground(NOTIFICATION_ID, notification)
@@ -141,8 +154,8 @@ class AlarmService : Service() {
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "Calendar Event Alarms"
-            val descriptionText = "High priority full-screen alarms for calendar meetings"
+            val name = getString(R.string.dashboard_title)
+            val descriptionText = getString(R.string.dashboard_subtitle)
             val importance = NotificationManager.IMPORTANCE_HIGH
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
                 description = descriptionText

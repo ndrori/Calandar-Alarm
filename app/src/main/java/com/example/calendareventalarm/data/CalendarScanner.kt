@@ -14,12 +14,39 @@ class CalendarScanner(private val context: Context) {
 
     companion object {
         private const val TAG = "CalendarScanner"
-        const val LEAD_TIME_MILLIS = 15 * 60 * 1000L // 15 Minutes Lead Time
+        const val LEAD_TIME_15M = 15 * 60 * 1000L
+        const val LEAD_TIME_10M = 10 * 60 * 1000L
+        const val LEAD_TIME_5M = 5 * 60 * 1000L
+        const val LEAD_TIME_0M = 0L
+
+        /**
+         * Calculates the next upcoming alarm trigger time based on 5-minute step thresholds (15m, 10m, 5m, 0m).
+         * Selects the longest future lead-time step that has not yet passed.
+         */
+        fun calculateNextAlarmTime(startTime: Long, now: Long = System.currentTimeMillis()): Long {
+            val steps = listOf(
+                LEAD_TIME_15M,
+                LEAD_TIME_10M,
+                LEAD_TIME_5M,
+                LEAD_TIME_0M
+            )
+
+            for (step in steps) {
+                val targetAlarmTime = startTime - step
+                // Return the first step whose alarm time is in the future (or triggering right now)
+                if (targetAlarmTime > now - 5_000L) {
+                    return targetAlarmTime
+                }
+            }
+
+            // Fallback for past events
+            return startTime - LEAD_TIME_15M
+        }
     }
 
     /**
      * Scans device calendar for events occurring within the specified window (default: next 48 hours).
-     * Calculates 15-minute pre-event alarm time for each event.
+     * Calculates 5-minute stepped alarm times for each event based on current lead time.
      */
     fun scanUpcomingEvents(windowHours: Int = 48): List<CalendarEvent> {
         val events = mutableListOf<CalendarEvent>()
@@ -46,7 +73,7 @@ class CalendarScanner(private val context: Context) {
             CalendarContract.Instances.ALL_DAY
         )
 
-        val selection = "${CalendarContract.Instances.ALL_DAY} = 0" // Filter out all-day events if preferred, or keep all
+        val selection = "${CalendarContract.Instances.ALL_DAY} = 0"
         val sortOrder = "${CalendarContract.Instances.BEGIN} ASC"
 
         var cursor: Cursor? = null
@@ -75,7 +102,7 @@ class CalendarScanner(private val context: Context) {
                     val start = it.getLong(beginIdx)
                     val end = it.getLong(endIdx)
 
-                    val alarmTime = start - LEAD_TIME_MILLIS
+                    val alarmTime = calculateNextAlarmTime(start, now)
 
                     val event = CalendarEvent(
                         eventId = id,

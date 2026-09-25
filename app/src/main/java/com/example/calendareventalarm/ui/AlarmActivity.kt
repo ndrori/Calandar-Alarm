@@ -7,19 +7,28 @@ import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.example.calendareventalarm.R
+import com.example.calendareventalarm.data.PreferencesManager
 import com.example.calendareventalarm.databinding.ActivityAlarmBinding
 import com.example.calendareventalarm.receiver.AlarmReceiver
 import com.example.calendareventalarm.service.AlarmService
 import com.example.calendareventalarm.utils.AlarmScheduler
+import com.example.calendareventalarm.utils.LocaleUtils
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import kotlin.math.max
+import kotlin.math.roundToInt
 
 class AlarmActivity : AppCompatActivity() {
 
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(LocaleUtils.wrapContext(newBase))
+    }
+
     private lateinit var binding: ActivityAlarmBinding
     private var eventId: Long = -1L
-    private var eventTitle: String = "Upcoming Meeting"
+    private var eventTitle: String = ""
     private var startTime: Long = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,18 +38,30 @@ class AlarmActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         eventId = intent.getLongExtra(AlarmScheduler.EXTRA_EVENT_ID, -1L)
-        eventTitle = intent.getStringExtra(AlarmScheduler.EXTRA_EVENT_TITLE) ?: "Upcoming Meeting"
+        eventTitle = intent.getStringExtra(AlarmScheduler.EXTRA_EVENT_TITLE) ?: getString(R.string.app_name)
         startTime = intent.getLongExtra(AlarmScheduler.EXTRA_EVENT_START_TIME, 0L)
         val isSnooze = intent.getBooleanExtra(AlarmScheduler.EXTRA_IS_SNOOZE, false)
 
-        binding.tvAlarmHeader.text = if (isSnooze) "SNOOZED MEETING ALARM" else "UPCOMING MEETING ALARM"
+        binding.tvAlarmHeader.text = if (isSnooze) {
+            getString(R.string.notification_snooze_title, eventTitle)
+        } else {
+            getString(R.string.alarm_ringing_title)
+        }
         binding.tvAlarmEventTitle.text = eventTitle
 
+        val leadMins = max(0, ((startTime - System.currentTimeMillis()) / (60 * 1000.0)).roundToInt())
+
         if (startTime > 0) {
-            val timeFormat = SimpleDateFormat("h:mm a", Locale.getDefault())
-            binding.tvMeetingTimeDetails.text = "Meeting starts at ${timeFormat.format(Date(startTime))}"
+            val activeLocale = LocaleUtils.getLocale(PreferencesManager(this).getLanguageCode())
+            val timeFormat = SimpleDateFormat("h:mm a", activeLocale)
+            val timeDetailText = if (leadMins > 0) {
+                getString(R.string.meeting_starts_in_mins, leadMins)
+            } else {
+                getString(R.string.meeting_starting_now)
+            }
+            binding.tvMeetingTimeDetails.text = "$timeDetailText (${timeFormat.format(Date(startTime))})"
         } else {
-            binding.tvMeetingTimeDetails.text = "Meeting starts in 15 minutes"
+            binding.tvMeetingTimeDetails.text = getString(R.string.meeting_starting_now)
         }
 
         // Snooze Button Click (Snooze 5 Minutes)

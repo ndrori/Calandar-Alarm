@@ -23,15 +23,19 @@ class AlarmScheduler(private val context: Context) {
     }
 
     /**
-     * Schedules a 15-minute lead time alarm for a given calendar event.
+     * Schedules a stepped lead time alarm for a given calendar event.
+     * If the target alarm time is right now (within 10 seconds), triggers immediately.
      */
     fun scheduleEventAlarm(event: CalendarEvent) {
-        val triggerTime = event.alarmTime
         val now = System.currentTimeMillis()
+        var triggerTime = event.alarmTime
 
-        if (triggerTime <= now) {
+        if (triggerTime <= now - 10_000L) {
             Log.d(TAG, "Alarm time for event '${event.title}' has already passed. Skipping.")
             return
+        } else if (triggerTime <= now) {
+            // Trigger immediately if scheduled right on the boundary
+            triggerTime = now + 500L
         }
 
         val intent = Intent(context, AlarmReceiver::class.java).apply {
@@ -134,7 +138,6 @@ class AlarmScheduler(private val context: Context) {
             }
         }
 
-        // Create Clock Show Intent for Alarm Clock info (makes it appear as system clock alarm)
         val showIntent = Intent(context, MainActivity::class.java)
         val showPendingIntent = PendingIntent.getActivity(
             context,

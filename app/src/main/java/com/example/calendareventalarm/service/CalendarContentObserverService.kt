@@ -11,9 +11,15 @@ import android.os.IBinder
 import android.provider.CalendarContract
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import com.example.calendareventalarm.R
 import com.example.calendareventalarm.receiver.CalendarObserver
+import com.example.calendareventalarm.utils.LocaleUtils
 
 class CalendarContentObserverService : Service() {
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(LocaleUtils.wrapContext(newBase))
+    }
 
     private var calendarObserver: CalendarObserver? = null
 
@@ -32,8 +38,8 @@ class CalendarContentObserverService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         val notification: Notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(android.R.drawable.ic_menu_today)
-            .setContentTitle("Calendar Alarm Monitoring")
-            .setContentText("Monitoring calendar events in real-time for upcoming alarms")
+            .setContentTitle(getString(R.string.notification_monitoring_title))
+            .setContentText(getString(R.string.notification_monitoring_text))
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .setCategory(NotificationCompat.CATEGORY_SERVICE)
             .setOngoing(true)
@@ -75,10 +81,10 @@ class CalendarContentObserverService : Service() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
-                "Calendar Real-time Monitoring",
+                getString(R.string.notification_monitoring_title),
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
-                description = "Background service for monitoring new calendar events continuously"
+                description = getString(R.string.notification_monitoring_text)
             }
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(channel)

@@ -1,6 +1,7 @@
 package com.example.calendareventalarm.receiver
 
 import android.content.Context
+import android.content.Intent
 import android.database.ContentObserver
 import android.net.Uri
 import android.os.Handler
@@ -17,6 +18,7 @@ class CalendarObserver(
 
     companion object {
         private const val TAG = "CalendarObserver"
+        const val ACTION_CALENDAR_CHANGED = "com.example.calendareventalarm.ACTION_CALENDAR_CHANGED"
     }
 
     override fun onChange(selfChange: Boolean, uri: Uri?) {
@@ -36,9 +38,17 @@ class CalendarObserver(
             }
 
             onCalendarChanged?.invoke()
+
+            // Broadcast change to active MainActivity UI
+            val intent = Intent(ACTION_CALENDAR_CHANGED).apply {
+                setPackage(context.packageName)
+            }
+            context.sendBroadcast(intent)
+
             Log.d(TAG, "Completed real-time rescan and scheduled ${events.size} event alarms.")
         } catch (e: Exception) {
             Log.e(TAG, "Error handling real-time calendar change", e)
         }
     }
 }
+
