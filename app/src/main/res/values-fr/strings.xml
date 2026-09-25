@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Alarme d\'Événement Calendrier</string>
+    <string name="dashboard_title">Alarmes d\'Événements du Calendrier</string>
+    <string name="dashboard_subtitle">Alarmes échelonnées pour vos réunions programmées</string>
+
+    <!-- Ringtone Preferences -->
+    <string name="alarm_tone_label">Sonnerie d\'Alarme</string>
+    <string name="select_tone_button">Changer de Son</string>
+    <string name="default_system_sound">Sonnerie d\'Alarme par Défaut</string>
+    <string name="sound_updated_toast">Son d\'alarme mis à jour : %1$s</string>
+    <string name="ringtone_picker_title">Sélectionner la Sonnerie / Musique</string>
+
+    <!-- Language Preferences -->
+    <string name="language_setting_label">Langue de l\'Interface</string>
+    <string name="change_language_button">Changer la Langue</string>
+    <string name="language_dialog_title">Sélectionner la Langue de l\'Application</string>
+    <string name="language_system_default">Par Défaut du Système</string>
+    <string name="language_updated_toast">Langue de l\'application mise à jour : %1$s</string>
+
+    <!-- Quick Actions -->
+    <string name="sync_now_button">Synchroniser le Calendrier</string>
+    <string name="test_alarm_button">Tester l\'Alarme (5 Secondes)</string>
+
+    <!-- Calendar List & Lead Times -->
+    <string name="upcoming_events_title">Réunions d\'Aujourd\'hui et À Venir</string>
+    <string name="no_events_found">Aucune réunion à venir trouvée dans le calendrier de l\'appareil.</string>
+    <string name="alarm_lead_time_label">Alarme réglée 15 minutes avant</string>
+    <string name="alarm_lead_time_minutes">Alarme réglée %1$d minutes avant</string>
+    <string name="alarm_lead_time_now">Alarme réglée pour le début de la réunion</string>
+    <string name="sync_success_toast">Calendrier synchronisé avec succès !</string>
+
+    <!-- Event Alarm Status -->
+    <string name="status_scheduled">Programmée</string>
+    <string name="status_fired">Alarme Déclenchée</string>
+    <string name="status_dismissed">Ignorée</string>
+
+    <!-- Fullscreen Alarm Screen -->
+    <string name="alarm_ringing_title">ALARME DE RÉUNION À VENIR</string>
+    <string name="snooze_button">Répéter (5 Mins)</string>
+    <string name="dismiss_button">Ignorer</string>
+    <string name="meeting_starts_in">La réunion commence dans 15 minutes</string>
+    <string name="meeting_starts_in_mins">La réunion commence dans %1$d minutes</string>
+    <string name="meeting_starting_now">La réunion commence maintenant !</string>
+    <string name="test_alarm_set_toast">Alarme de test réglée sur 5 secondes !</string>
+
+    <!-- Permissions -->
+    <string name="permission_required">Autorisations de calendrier et de notifications requises pour le suivi des réunions.</string>
+    <string name="permission_required_toast">L\'autorisation de calendrier est requise pour suivre les réunions.</string>
+    <string name="grant_permissions">Accorder les Autorisations</string>
+
+    <!-- Notifications & Background Services -->
+    <string name="notification_monitoring_title">Surveillance d\'Alarmes de Calendrier</string>
+    <string name="notification_monitoring_text">Surveillance des événements du calendrier en temps réel</string>
+    <string name="notification_alarm_title">ALARME : 15 MIN AVANT</string>
+    <string name="notification_alarm_title_mins">ALARME : %1$d MIN AVANT</string>
+    <string name="notification_alarm_title_now">ALARME : LA RÉUNION COMMENCE MAINTENANT</string>
+    <string name="notification_snooze_title">ALARME RÉPÉTÉE : %1$s</string>
+    <string name="notification_alarm_text">Réunion à Venir : %1$s</string>
+    <string name="notification_snooze_action">Répéter (5m)</string>
+    <string name="notification_dismiss_action">Ignorer</string>
+</resources>

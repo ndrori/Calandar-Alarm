@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Alarma de Eventos de Calendario</string>
+    <string name="dashboard_title">Alarmas de Eventos del Calendario</string>
+    <string name="dashboard_subtitle">Alarmas escalonadas para sus reuniones programadas</string>
+
+    <!-- Ringtone Preferences -->
+    <string name="alarm_tone_label">Sonido de Alarma de Evento</string>
+    <string name="select_tone_button">Cambiar Tono</string>
+    <string name="default_system_sound">Tono de Alarma Predeterminado</string>
+    <string name="sound_updated_toast">Sonido de alarma actualizado a: %1$s</string>
+    <string name="ringtone_picker_title">Seleccionar Tono / Sonido de Alarma</string>
+
+    <!-- Language Preferences -->
+    <string name="language_setting_label">Idioma de la Interfaz</string>
+    <string name="change_language_button">Cambiar Idioma</string>
+    <string name="language_dialog_title">Seleccionar Idioma de la Aplicación</string>
+    <string name="language_system_default">Predeterminado del Sistema</string>
+    <string name="language_updated_toast">Idioma de la aplicación actualizado a: %1$s</string>
+
+    <!-- Quick Actions -->
+    <string name="sync_now_button">Sincronizar Calendario Ahora</string>
+    <string name="test_alarm_button">Probar Alarma (5 Segundos)</string>
+
+    <!-- Calendar List & Lead Times -->
+    <string name="upcoming_events_title">Reuniones de Hoy y Próximas</string>
+    <string name="no_events_found">No se encontraron próximas reuniones en el calendario del dispositivo.</string>
+    <string name="alarm_lead_time_label">Alarma configurada 15 minutos antes</string>
+    <string name="alarm_lead_time_minutes">Alarma configurada %1$d minutos antes</string>
+    <string name="alarm_lead_time_now">Alarma configurada para el inicio del evento</string>
+    <string name="sync_success_toast">¡Calendario sincronizado con éxito!</string>
+
+    <!-- Event Alarm Status -->
+    <string name="status_scheduled">Programada</string>
+    <string name="status_fired">Alarma Activada</string>
+    <string name="status_dismissed">Descartada</string>
+
+    <!-- Fullscreen Alarm Screen -->
+    <string name="alarm_ringing_title">ALARMA DE PRÓXIMA REUNIÓN</string>
+    <string name="snooze_button">Posponer (5 Mins)</string>
+    <string name="dismiss_button">Descartar</string>
+    <string name="meeting_starts_in">La reunión comienza en 15 minutos</string>
+    <string name="meeting_starts_in_mins">La reunión comienza en %1$d minutos</string>
+    <string name="meeting_starting_now">¡La reunión comienza ahora!</string>
+    <string name="test_alarm_set_toast">¡Alarma de prueba configurada para 5 segundos!</string>
+
+    <!-- Permissions -->
+    <string name="permission_required">Se requieren permisos de Calendario y Notificaciones para realizar el seguimiento de reuniones y sonar alarmas.</string>
+    <string name="permission_required_toast">Se requiere permiso de calendario para realizar el seguimiento de las reuniones.</string>
+    <string name="grant_permissions">Otorgar Permisos</string>
+
+    <!-- Notifications & Background Services -->
+    <string name="notification_monitoring_title">Monitoreo de Alarmas de Calendario</string>
+    <string name="notification_monitoring_text">Monitoreando eventos del calendario en tiempo real para las próximas alarmas</string>
+    <string name="notification_alarm_title">ALARMA: 15 MIN ANTES</string>
+    <string name="notification_alarm_title_mins">ALARMA: %1$d MIN ANTES</string>
+    <string name="notification_alarm_title_now">ALARMA: ¡LA REUNIÓN COMIENZA AHORA!</string>
+    <string name="notification_snooze_title">ALARMA POSPUESTA: %1$s</string>
+    <string name="notification_alarm_text">Próxima Reunión: %1$s</string>
+    <string name="notification_snooze_action">Posponer (5m)</string>
+    <string name="notification_dismiss_action">Descartar</string>
+</resources>

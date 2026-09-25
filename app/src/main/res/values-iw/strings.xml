@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">התראות פגישות לוח שנה</string>
+    <string name="dashboard_title">התראות פגישות לוח שנה</string>
+    <string name="dashboard_subtitle">התראות מדורגות לפני מועד הפגישה המתוכננת</string>
+
+    <!-- Ringtone Preferences -->
+    <string name="alarm_tone_label">צליל התראה</string>
+    <string name="select_tone_button">שנה צליל</string>
+    <string name="default_system_sound">צליל התראה ברירת מחדל</string>
+    <string name="sound_updated_toast">צליל ההתראה עודכן ל: %1$s</string>
+    <string name="ringtone_picker_title">בחר צליל התראה / מוזיקה</string>
+
+    <!-- Language Preferences -->
+    <string name="language_setting_label">שפת ממשק המשתמש</string>
+    <string name="change_language_button">שנה שפה</string>
+    <string name="language_dialog_title">בחר שפת אפליקציה</string>
+    <string name="language_system_default">ברירת מחדל של המערכת</string>
+    <string name="language_updated_toast">שפת האפליקציה עודכנה ל: %1$s</string>
+
+    <!-- Quick Actions -->
+    <string name="sync_now_button">סנכרן לוח שנה עכשיו</string>
+    <string name="test_alarm_button">בדיקת התראה (5 שניות)</string>
+
+    <!-- Calendar List & Lead Times -->
+    <string name="upcoming_events_title">פגישות היום והקרובות</string>
+    <string name="no_events_found">לא נמצאו פגישות קרובות בלוח השנה של המכשיר.</string>
+    <string name="alarm_lead_time_label">התראה מוגדרת ל-15 דקות לפני</string>
+    <string name="alarm_lead_time_minutes">התראה מוגדרת ל-%1$d דקות לפני</string>
+    <string name="alarm_lead_time_now">התראה מוגדרת לשעת תחילת הפגישה</string>
+    <string name="sync_success_toast">לוח השנה מסונכרן בהצלחה!</string>
+
+    <!-- Event Alarm Status -->
+    <string name="status_scheduled">מתוזמן</string>
+    <string name="status_fired">התראה הופעלה</string>
+    <string name="status_dismissed">בוטל</string>
+
+    <!-- Fullscreen Alarm Screen -->
+    <string name="alarm_ringing_title">התראת פגישה קרובה</string>
+    <string name="snooze_button">נודניק (5 דק\')</string>
+    <string name="dismiss_button">ביטול</string>
+    <string name="meeting_starts_in">הפגישה מתחילה בעוד 15 דקות</string>
+    <string name="meeting_starts_in_mins">הפגישה מתחילה בעוד %1$d דקות</string>
+    <string name="meeting_starting_now">הפגישה מתחילה עכשיו!</string>
+    <string name="test_alarm_set_toast">התראת בדיקה הוגדרה ל-5 שניות!</string>
+
+    <!-- Permissions -->
+    <string name="permission_required">נדרשות הרשאות לוח שנה והתראות כדי לעקוב אחר פגישות ולהפעיל התראות.</string>
+    <string name="permission_required_toast">הרשאת לוח שנה נדרשת למעקב אחר פגישות.</string>
+    <string name="grant_permissions">ענק הרשאות</string>
+
+    <!-- Notifications & Background Services -->
+    <string name="notification_monitoring_title">ניטור התראות לוח שנה</string>
+    <string name="notification_monitoring_text">מנטר פגישות בלוח השנה בזמן אמת עבור התראות קרובות</string>
+    <string name="notification_alarm_title">התראה: 15 דקות לפני</string>
+    <string name="notification_alarm_title_mins">התראה: %1$d דקות לפני</string>
+    <string name="notification_alarm_title_now">התראה: הפגישה מתחילה עכשיו</string>
+    <string name="notification_snooze_title">התראה בנודניק: %1$s</string>
+    <string name="notification_alarm_text">פגישה קרובה: %1$s</string>
+    <string name="notification_snooze_action">נודניק (5 דק\')</string>
+    <string name="notification_dismiss_action">ביטול</string>
+</resources>

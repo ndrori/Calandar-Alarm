@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Kalender-Ereignis-Alarm</string>
+    <string name="dashboard_title">Kalender-Ereignis-Alarme</string>
+    <string name="dashboard_subtitle">Gestufte Vorab-Alarme für Ihre geplanten Termine</string>
+
+    <!-- Ringtone Preferences -->
+    <string name="alarm_tone_label">Alarm-Klingelton</string>
+    <string name="select_tone_button">Ton Ändern</string>
+    <string name="default_system_sound">Standard-Systemalarmton</string>
+    <string name="sound_updated_toast">Alarmton aktualisiert auf: %1$s</string>
+    <string name="ringtone_picker_title">Alarm-Klingelton / Musik Auswählen</string>
+
+    <!-- Language Preferences -->
+    <string name="language_setting_label">Oberflächensprache</string>
+    <string name="change_language_button">Sprache Ändern</string>
+    <string name="language_dialog_title">App-Sprache Auswählen</string>
+    <string name="language_system_default">Systemstandard</string>
+    <string name="language_updated_toast">App-Sprache aktualisiert auf: %1$s</string>
+
+    <!-- Quick Actions -->
+    <string name="sync_now_button">Kalender Jetzt Synchronisieren</string>
+    <string name="test_alarm_button">Testalarm (5 Sekunden)</string>
+
+    <!-- Calendar List & Lead Times -->
+    <string name="upcoming_events_title">Heutige &amp; Anstehende Termine</string>
+    <string name="no_events_found">Keine anstehenden Termine im Gerät-Kalender gefunden.</string>
+    <string name="alarm_lead_time_label">Alarm auf 15 Minuten vorher eingestellt</string>
+    <string name="alarm_lead_time_minutes">Alarm auf %1$d Minuten vorher eingestellt</string>
+    <string name="alarm_lead_time_now">Alarm für Terminbeginn eingestellt</string>
+    <string name="sync_success_toast">Kalender erfolgreich synchronisiert!</string>
+
+    <!-- Event Alarm Status -->
+    <string name="status_scheduled">Geplant</string>
+    <string name="status_fired">Alarm Ausgelöst</string>
+    <string name="status_dismissed">Abgewiesen</string>
+
+    <!-- Fullscreen Alarm Screen -->
+    <string name="alarm_ringing_title">ANSTEHENDER TERMIN-ALARM</string>
+    <string name="snooze_button">Schlummern (5 Min.)</string>
+    <string name="dismiss_button">Beenden</string>
+    <string name="meeting_starts_in">Termin beginnt in 15 Minuten</string>
+    <string name="meeting_starts_in_mins">Termin beginnt in %1$d Minuten</string>
+    <string name="meeting_starting_now">Termin beginnt jetzt!</string>
+    <string name="test_alarm_set_toast">Testalarm für 5 Sekunden eingestellt!</string>
+
+    <!-- Permissions -->
+    <string name="permission_required">Kalender- und Benachrichtigungsberechtigungen erforderlich, um Termine zu verfolgen.</string>
+    <string name="permission_required_toast">Kalenderberechtigung erforderlich, um Termine zu verfolgen.</string>
+    <string name="grant_permissions">Berechtigungen Erteilen</string>
+
+    <!-- Notifications & Background Services -->
+    <string name="notification_monitoring_title">Kalender-Alarm-Überwachung</string>
+    <string name="notification_monitoring_text">Überwachung von Kalenderereignissen in Echtzeit für anstehende Alarme</string>
+    <string name="notification_alarm_title">ALARM: 15 MIN. VORHER</string>
+    <string name="notification_alarm_title_mins">ALARM: %1$d MIN. VORHER</string>
+    <string name="notification_alarm_title_now">ALARM: TERMIN BEGINNT JETZT</string>
+    <string name="notification_snooze_title">SCHLUMMER-ALARM: %1$s</string>
+    <string name="notification_alarm_text">Anstehender Termin: %1$s</string>
+    <string name="notification_snooze_action">Schlummern (5 Min.)</string>
+    <string name="notification_dismiss_action">Beenden</string>
+</resources>

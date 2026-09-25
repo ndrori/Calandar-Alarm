@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">منبه أحداث التقويم</string>
+    <string name="dashboard_title">منبهات أحداث التقويم</string>
+    <string name="dashboard_subtitle">منبهات متدرجة قبل مواعيد اجتماعاتك المحددة</string>
+
+    <!-- Ringtone Preferences -->
+    <string name="alarm_tone_label">صوت المنبه</string>
+    <string name="select_tone_button">تغيير الصوت</string>
+    <string name="default_system_sound">نغمة المنبه الافتراضية للنظام</string>
+    <string name="sound_updated_toast">تم تحديث صوت المنبه إلى: %1$s</string>
+    <string name="ringtone_picker_title">اختر نغمة / صوت المنبه</string>
+
+    <!-- Language Preferences -->
+    <string name="language_setting_label">لغة واجهة التطبيق</string>
+    <string name="change_language_button">تغيير اللغة</string>
+    <string name="language_dialog_title">اختر لغة التطبيق</string>
+    <string name="language_system_default">افتراضي النظام</string>
+    <string name="language_updated_toast">تم تحديث لغة التطبيق إلى: %1$s</string>
+
+    <!-- Quick Actions -->
+    <string name="sync_now_button">مزامنة التقويم الآن</string>
+    <string name="test_alarm_button">اختبار المنبه (5 ثوانٍ)</string>
+
+    <!-- Calendar List & Lead Times -->
+    <string name="upcoming_events_title">اجتماعات اليوم والاجتماعات القادمة</string>
+    <string name="no_events_found">لم يتم العثور على اجتماعات قادمة في تقويم الجهاز.</string>
+    <string name="alarm_lead_time_label">تم ضبط المنبه قبل 15 دقيقة</string>
+    <string name="alarm_lead_time_minutes">تم ضبط المنبه قبل %1$d دقائق</string>
+    <string name="alarm_lead_time_now">تم ضبط المنبه وقت موعد الاجتماع</string>
+    <string name="sync_success_toast">تمت مزامنة التقويم بنجاح!</string>
+
+    <!-- Event Alarm Status -->
+    <string name="status_scheduled">مجدول</string>
+    <string name="status_fired">تم تشغيل المنبه</string>
+    <string name="status_dismissed">تم التجاهل</string>
+
+    <!-- Fullscreen Alarm Screen -->
+    <string name="alarm_ringing_title">منبه اجتماع قادم</string>
+    <string name="snooze_button">إغفاءة (5 دقائق)</string>
+    <string name="dismiss_button">إلغاء</string>
+    <string name="meeting_starts_in">يبدأ الاجتماع خلال 15 دقيقة</string>
+    <string name="meeting_starts_in_mins">يبدأ الاجتماع خلال %1$d دقائق</string>
+    <string name="meeting_starting_now">يبدأ الاجتماع الآن!</string>
+    <string name="test_alarm_set_toast">تم ضبط المنبه التجريبي بعد 5 ثوانٍ!</string>
+
+    <!-- Permissions -->
+    <string name="permission_required">يلزم الحصول على أذونات التقويم والإشعارات لتتبع الاجتماعات وتشغيل المنبهات.</string>
+    <string name="permission_required_toast">يلزم إذن التقويم لتتبع الاجتماعات.</string>
+    <string name="grant_permissions">منح الأذونات</string>
+
+    <!-- Notifications & Background Services -->
+    <string name="notification_monitoring_title">مراقبة منبهات التقويم</string>
+    <string name="notification_monitoring_text">مراقبة أحداث التقويم في الوقت الفعلي للمنبهات القادمة</string>
+    <string name="notification_alarm_title">منبه: قبل 15 دقيقة</string>
+    <string name="notification_alarm_title_mins">منبه: قبل %1$d دقائق</string>
+    <string name="notification_alarm_title_now">منبه: يبدأ الاجتماع الآن</string>
+    <string name="notification_snooze_title">منبه مؤجل: %1$s</string>
+    <string name="notification_alarm_text">اجتماع قادم: %1$s</string>
+    <string name="notification_snooze_action">إغفاءة (5 د)</string>
+    <string name="notification_dismiss_action">إلغاء</string>
+</resources>
